@@ -1,0 +1,29 @@
+header, main {
+    width: 70vw;
+    margin: 0 auto;
+    border: none;
+}
+
+header {
+    display: flex;
+}
+
+header input {
+    flex-grow: 1;
+    border: 1px solid black;
+}
+
+header button {
+    border: 1px solid black;
+    border-left: none;
+}
+
+.container {
+    display: flex;
+}
+
+.span-container {
+    flex-grow: 1;
+    display: inline-block;
+}
+
