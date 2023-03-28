@@ -26,7 +26,6 @@ Anote o Token Gerado em um local seguro
 > git pull
 
 
-
 ## CRUD vs REST vs SQL
 
 ACTION  | HTTP       | SQL

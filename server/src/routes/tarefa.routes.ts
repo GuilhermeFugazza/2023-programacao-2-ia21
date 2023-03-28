@@ -25,18 +25,24 @@ router.post("/", async (req, res) => {
 })
 
 router.put("/:id", async (req, res) => {
-  console.log("UPDATE ALL")
+  console.log("UPDATE ALL ITENS")
   const db = await database()
-  const result = await db.run('UPDATE todo SET texto=?, done=? WHERE id=?', [req.body.texto, req.body.done])
+  const result = await db.run('UPDATE todo SET texto=?, done=? WHERE id=?', [req.body.texto, req.body.done, req.params.id])
   res.json({ result })
 })
 
-router.patch("/:id", (req, res) => {
-  res.send("# Alterar dados específicos de uma tarefa")
+router.patch("/:id", async (req, res) => {
+  console.log("UPDATE ITEM")
+  const db = await database()
+  const result = await db.all('UPDATE todo SET done=? WHERE id=?', [req.body.done, req.params.id])
+  res.json({ result })
 })
 
-router.delete("/:id", (req, res) => { 
-  res.send("# Excluir uma tarefa")
+router.delete("/:id", async (req, res) => { 
+  console.log("DELETE ITENS")
+  const db = await database()
+  const result = await db.run('DELETE FROM todo WHERE id=?', [req.params.id])
+  res.json({ result })
 })
 
 export default router
